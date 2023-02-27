@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <base href="./" target="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Тайм-менеджмент</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/dist/app.bundle.css">
+</head>
+<body>
+    <div id="app">
+        <div id="intro" class="employed">
+            <img src="assets/images/logo.svg" alt="Logo">
+        </div>
+        <div class="dynamic" style = "display:none">
+            <div class="flyout">
+                <h4 class="lift" title="Click for more info.">Інформація</h4>
+                <div class="body-text">
+                    <h1>тайм-менеджмент</h1>
+                    <p>
+                        проект учениці 11 класу
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="control-center">
+            <div class="bar">
+                
+                <div id="launch-time"></div>
+                
+            </div>
+            
+        </div>
+        <div class="static">
+           
+            <div id="dashboard" style = "display:none">
+                
+                <button data-fn="start" tabindex="1" title="This button starts the timer.">
+                    
+                </button>
+                <button data-fn="stop" tabindex="-1" title="This button stops the timer.">
+                    
+                </button>
+                <button data-fn="add" tabindex="-1" title="This button adds an entry.">
+                
+                </button>
+                <button data-fn="reset" tabindex="-1" title="This button resets the timer.">
+                 
+                </button>
+                <button data-fn="flip" tabindex="2" title="If timer is already started, this button will stop, add, reset and start the timer at the same time.">
+               
+                </button>
+            </div>
+         
+            
+            <div class="todos-container" style = "display:none">
+                <div id="todos-header">
+                    
+                    
+                    <form>
+                        <input data-fn="input" type="search" tabindex="3" placeholder="" disabled="true" visible="false"/>
+                        <input data-fn="button" type="button" tabindex="-1" value="" disabled="true" />
+                    </form>
+                </div>
+                
+                <div id="todos-options" class="app-options" data-options="false">
+                    <span data-fn="delete" title="Delete all ToDos."></span>
+                    <span data-fn="restore" title="Restore one/all ToDos if any is deleted."></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/dist/app.bundle.js"></script>
+</body>
+</html>
