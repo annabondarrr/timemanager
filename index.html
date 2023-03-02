@@ -9,65 +9,78 @@
     <link rel="stylesheet" type="text/css" href="assets/css/dist/app.bundle.css">
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJL3TQS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="app">
         <div id="intro" class="employed">
             <img src="assets/images/logo.svg" alt="Logo">
         </div>
-        <div class="dynamic" style = "display:none">
+        <div class="dynamic" style="display:none">
+            
             <div class="flyout">
-                <h4 class="lift" title="Click for more info.">Інформація</h4>
-                <div class="body-text">
-                    <h1>тайм-менеджмент</h1>
-                    <p>
-                        проект учениці 11 класу
-                    </p>
-                    
+                <div class="flyout">
+                    <h4 class="lift" title="Click for more info.">Інформація</h4>
+                    <div class="body-text">
+                        <h1>тайм-менеджмент</h1>
+                        <p>
+                            проект учениці 11 класу
+                        </p>
+                        
+                    </div>
                 </div>
             </div>
         </div>
         <div class="control-center">
             <div class="bar">
-                
+                <div id="indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div id="launch-time"></div>
+                <div id="hamburger" title="Control Center.">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="settings">
                 
             </div>
-            
         </div>
         <div class="static">
-           
-            <div id="dashboard" style = "display:none">
-                
-                <button data-fn="start" tabindex="1" title="This button starts the timer.">
-                    
+            <div id="dashboard" disabled="true">
+                <button data-fn="start" tabindex="1" title="This button starts the timer." disabled="true">
+                    <i class="icon-play-circle"></i>
                 </button>
-                <button data-fn="stop" tabindex="-1" title="This button stops the timer.">
-                    
+                <button data-fn="stop" tabindex="-1" title="This button stops the timer." disabled="true">
+                    <i class="icon-stop-circle"></i>
                 </button>
-                <button data-fn="add" tabindex="-1" title="This button adds an entry.">
-                
+                <button data-fn="add" tabindex="-1" title="This button adds an entry." disabled="true">
+                    <i class="icon-plus-circle"></i>
                 </button>
-                <button data-fn="reset" tabindex="-1" title="This button resets the timer.">
-                 
+                <button data-fn="reset" tabindex="-1" title="This button resets the timer." disabled="true">
+                    <i class="icon-minus-circle"></i>
                 </button>
-                <button data-fn="flip" tabindex="2" title="If timer is already started, this button will stop, add, reset and start the timer at the same time.">
-               
+                <button data-fn="flip" tabindex="2" title="If timer is already started, this button will stop, add, reset and start the timer at the same time." disabled="true">
+                    <i class="icon-refresh"></i>
                 </button>
             </div>
-         
             
             <div class="todos-container" style = "display:none">
                 <div id="todos-header">
                     
-                    
                     <form>
-                        <input data-fn="input" type="search" tabindex="3" placeholder="" disabled="true" visible="false"/>
-                        <input data-fn="button" type="button" tabindex="-1" value="" disabled="true" />
+                        <input data-fn="input" type="search" tabindex="3" placeholder="What are you planning to do?" />
+                        <input data-fn="button" type="button" tabindex="-1" value="Add" />
                     </form>
                 </div>
-                
+                <ul id="todos-container"></ul>
                 <div id="todos-options" class="app-options" data-options="false">
-                    <span data-fn="delete" title="Delete all ToDos."></span>
-                    <span data-fn="restore" title="Restore one/all ToDos if any is deleted."></span>
+                    <span data-fn="delete" title="Delete all ToDos."><i class="icon-trash"></i>Delete All</span>
+                    <span data-fn="restore" title="Restore one/all ToDos if any is deleted."><i class="icon-undo"></i>Restore All</span>
                 </div>
             </div>
         </div>
