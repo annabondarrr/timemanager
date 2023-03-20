@@ -17,9 +17,19 @@
         <div id="intro" class="employed">
             <img src="assets/images/logo.svg" alt="Logo">
         </div>
-        <div class="dynamic" style="display:none">
-            
-            <div class="flyout">
+        <div class="dynamic">
+            <div id="modal">
+                <form data-fn="form">
+                    <h3 data-fn="heading"></h3>
+                    <p data-fn="message"></p>
+                    <label data-fn="current" for="modal-input" title="Поточне значення"></label>
+                    <input data-fn="text" type="text" tabindex="-1" id="modal-input" placeholder="Напишіть сюди ..." />
+                    <input data-fn="cancel" type="reset" tabindex="-1" value="Скасувати" />
+                    <input data-fn="submit" type="button" tabindex="-1" value="OK" />
+                </form>
+            </div>
+            <div id="notifications-bar" style="display:none"></div>
+            <div class="flyout" style="display:none">
                 <div class="flyout">
                     <h4 class="lift" title="Click for more info.">Інформація</h4>
                     <div class="body-text">
@@ -35,12 +45,12 @@
         <div class="control-center">
             <div class="bar">
                 <div id="indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span title="A process is going on."></span>
+                    <span title="Waiting for action."></span>
+                    <span title="Clear for further actions."></span>
                 </div>
                 <div id="launch-time"></div>
-                <div id="hamburger" title="Control Center.">
+                <div id="hamburger" title="Налаштування" style="pointer-events:none">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -51,36 +61,87 @@
             </div>
         </div>
         <div class="static">
-            <div id="dashboard" disabled="true">
-                <button data-fn="start" tabindex="1" title="This button starts the timer." disabled="true">
+            <div id="dashboard">
+                <button data-fn="start" tabindex="1" title="Кнопка для початку запису.">
                     <i class="icon-play-circle"></i>
                 </button>
-                <button data-fn="stop" tabindex="-1" title="This button stops the timer." disabled="true">
+                <button data-fn="stop" tabindex="-1" title="Кнопка для зупинки запису.">
                     <i class="icon-stop-circle"></i>
                 </button>
-                <button data-fn="add" tabindex="-1" title="This button adds an entry." disabled="true">
+                <button data-fn="add" tabindex="-1" title="Кнопка для додавання запису.">
                     <i class="icon-plus-circle"></i>
                 </button>
-                <button data-fn="reset" tabindex="-1" title="This button resets the timer." disabled="true">
+                <button data-fn="reset" tabindex="-1" title="Кнопка для скидання таймеру.">
                     <i class="icon-minus-circle"></i>
                 </button>
-                <button data-fn="flip" tabindex="2" title="If timer is already started, this button will stop, add, reset and start the timer at the same time." disabled="true">
+                <button data-fn="flip" tabindex="2" title="Якщо таймер вже запущено, ця кнопка зупинить таймер, додасть запис та почне новий запис">
                     <i class="icon-refresh"></i>
                 </button>
             </div>
-            
-            <div class="todos-container" style = "display:none">
+            <div id="clock"></div>
+            <div class="table-container">
+                <table class="times-table">
+                    <thead>
+                        <tr>
+                            <th title="Порядковий покажчик запису у таблиці.">№ запису</th>
+                            <th title="Час початку певного запису.">Час початку</th>
+                            <th title="Час зупинки поточного запису.">Час завершення</th>
+                            <th title="Тривалість від часу початку до часу зупинки.">Тривалість</th>
+                            <th title="Підпис часового проміжку.">Заголовок</th>
+                            <th title="Додаткова нотатка до запису.">Нотатка</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entries-container"></tbody>
+                </table>
+                <div class="placeholder"></div>
+                <div id="entries-options" class="app-options" data-options="false">
+                    <span data-fn="erase" title="Натисніть, щоб отримати більше інформації.">
+                        <i class="icon-trash"></i>Стерти
+                        <div class="context">
+                            <span data-fn="imported" title="Стерти внесені з файлу записи."><i class="icon-minus-square-o"></i>Стерти внесені</span>
+                            <span data-fn="all" title="Стерти всі записи."><i class="icon-trash"></i>Стерти все</span>
+                        </div>
+                    </span>
+                    <span data-fn="restore" title="Відновити останній збережений список.">
+                        <i class="icon-undo"></i>Відновити
+                        <div class="context">
+                            <span data-fn="all" title="Відновити всі записи."><i class="icon-undo"></i>Відновити все</span>
+                            <span data-fn="two" title="Відновити два останніх записи."><i class="icon-undo"></i>Відновити два останніх</span>
+                            <span data-fn="one" title="Відновити останній запис."><i class="icon-undo"></i>Відновити останній</span>
+                        </div>
+                    </span>
+                    <span data-fn="recover" title="Завантажити записи, якщо був доданий.">
+                        <i class="icon-repeat"></i>Завантажити в таблицю
+                        <div class="context">
+                            <span data-fn="open" title="Оберіть і додайте JSON файл з своєї системи."><i class="icon-upload"></i>Відкрити файл</span>
+                            <span data-fn="recover" title="Завантажити в таблицю з обраного файлу."><i class="icon-repeat"></i>Завантажити в таблицю</span>
+                        </div>
+                    </span>
+                    <span data-fn="export" title="Завантажити з таблиці в одному із доступних форматів.">
+                        <i class="icon-download"></i>Завантажити з таблиці
+                        <div class="context">
+                            <span data-fn="json" title="Завантажити JSON. У цьому форматі завантажені з імпортованого файлу включені не будуть"><i class="icon-file-text-o"></i>JSON (Recoverable)</span>
+                            <span data-fn="html" title="Завантажити HTML."><i class="icon-file-code-o"></i>HTML (Document)</span>
+                            <span data-fn="txt" title="Завантажити TXT."><i class="icon-file-o"></i>TXT (Plain Text)</span>
+                            <span data-fn="csv" title="Завантажити CSV."><i class="icon-file"></i>CSV (Excel)</span>
+                            <span data-fn="xls" title="Завантажити XLS."><i class="icon-file-excel-o"></i>XLS (Excel)</span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="todos-container">
                 <div id="todos-header">
-                    
+                    <h2>Список справ</h2>
+                    <p>Ви додали <b data-fn="counter">0</b> запланованих справ</p>
                     <form>
-                        <input data-fn="input" type="search" tabindex="3" placeholder="What are you planning to do?" />
-                        <input data-fn="button" type="button" tabindex="-1" value="Add" />
+                        <input data-fn="input" type="search" tabindex="3" placeholder="Що ви плануєте робити?" />
+                        <input data-fn="button" type="button" tabindex="-1" value="Додати" />
                     </form>
                 </div>
                 <ul id="todos-container"></ul>
                 <div id="todos-options" class="app-options" data-options="false">
-                    <span data-fn="delete" title="Delete all ToDos."><i class="icon-trash"></i>Delete All</span>
-                    <span data-fn="restore" title="Restore one/all ToDos if any is deleted."><i class="icon-undo"></i>Restore All</span>
+                    <span data-fn="delete" title="Видалити всі заплановані справи."><i class="icon-trash"></i>Видалити всі</span>
+                    <span data-fn="restore" title="Відновити одну або всі справи, якщо були видалені."><i class="icon-undo"></i>Відновити всі</span>
                 </div>
             </div>
         </div>
