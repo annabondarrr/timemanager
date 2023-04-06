@@ -28,36 +28,155 @@
                     <input data-fn="submit" type="button" tabindex="-1" value="OK" />
                 </form>
             </div>
-            <div id="notifications-bar" style="display:none"></div>
-            <div class="flyout" style="display:none">
-                <div class="flyout">
-                    <h4 class="lift" title="Click for more info.">Інформація</h4>
+            <div id="notifications-bar"></div>
+            
+                <div class="flyout" >
+                    <h4 class="lift" title="Натисніть, щоб отримати більше інформації.">інформація про авторку</h4>
                     <div class="body-text">
                         <h1>тайм-менеджмент</h1>
+                        <img src="assets/images/author.jpg" width="175px" style="border-radius: 50%;"><br>
                         <p>
-                            проект учениці 11 класу
+                            Проект виконала учениця 11 класу, Бондар Анна
                         </p>
-                        
+                        <p>
+                            Для питань щодо проекту можете звертатись на електронну пошту:<br>
+                            <a href="mailto:bondar.anna@elitar.rv.ua?subject=%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%22%D0%A2%D0%B0%D0%B9%D0%BC-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%22">bondar.anna@elitar.rv.ua</a>
+                        </p>
                     </div>
                 </div>
-            </div>
+            
         </div>
         <div class="control-center">
             <div class="bar">
                 <div id="indicator">
-                    <span title="A process is going on."></span>
-                    <span title="Waiting for action."></span>
-                    <span title="Clear for further actions."></span>
+                    <span title="Процес триває."></span>
+                    <span title="Очікування дії."></span>
+                    <span title="Активні дії завершились."></span>
                 </div>
                 <div id="launch-time"></div>
-                <div id="hamburger" title="Налаштування" style="pointer-events:none">
+                <div id="hamburger" title="Налаштування">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
             <div class="settings">
-                
+                <div class="pack">
+                    <label for="amplifier"><span>Налаштування додатку</span></label>
+                    <input id="amplifier" type="checkbox" checked tabindex="-1"/>
+                    <div class="tier amplifiable">
+                        <div class="cell-33" style="display:none">
+                            <div class="cell-inner">
+                                <h3>Основні</h3>
+                                <div class="option" style="display:none">
+                                    <span class="caption">Lock Toggles</span>
+                                    <label class="toggle locker">
+                                        <input type="checkbox" data-fn="glt" tabindex="-1"/> 
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Capacious UI</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="gcu" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Notifications Log</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="gnl" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-33">
+                            <div class="cell-inner">
+                                <h3>Таймер</h3>
+                                <div class="option">
+                                    <span class="caption">Спрощене керування</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tsd" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Спрощена таблиця</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tst" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Просунуті можливості</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tao" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-33">
+                            <div class="cell-inner">
+                                <h3>Режими</h3>
+                                <div class="option">
+                                    <span class="caption">Темний</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mdm" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Зосередженість на часі</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mem" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Спрощений</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mum" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="amplifier"><span>Просунуті налаштування</span></label>
+                    <input id="amplifier" type="checkbox" checked tabindex="-1"/>
+                    <div class="tier amplifiable">
+                        <div class="cell-33">
+                            <div class="cell-inner shortcuts">
+                                <h3>Комбінації клавіш</h3>
+                                <ul>
+                                    <li><span><i class="icon-play-circle"></i>Початок запису</span><span><i>Alt</i>+<i>Shift</i>+<i>1</i></span></li>
+                                    <li><span><i class="icon-stop-circle"></i>Зупинка запису</span><span><i>Alt</i>+<i>Shift</i>+<i>2</i></span></li>
+                                    <li><span><i class="icon-plus-circle"></i>Додати запис</span><span><i>Alt</i>+<i>Shift</i>+<i>3</i></span></li>
+                                    <li><span><i class="icon-minus-circle"></i>Скинути запис</span><span><i>Alt</i>+<i>Shift</i>+<i>4</i></span></li>
+                                    <li><span><i class="icon-refresh"></i>Тривалий запис</span><span><i>Alt</i>+<i>Shift</i>+<i>5</i></span></li>
+                                    <li><span><i class="icon-undo"></i>Відновити запис</span><span><i>Alt</i>+<i>Shift</i>+<i>Z</i></span></li>
+                                    <li><span><i class="icon-file-excel-o"></i>Експортувати з Excel</span><span><i>Alt</i>+<i>Shift</i>+<i>E</i></span></li>
+                                    <li><span><i class="icon-file-text-o"></i>Експортувати з JSON</span><span><i>Alt</i>+<i>Shift</i>+<i>J</i></span></li>
+                                    <li><span><i class="icon-upload"></i>Відкрити файл</span><span><i>Alt</i>+<i>Shift</i>+<i>O</i></span></li>
+                                    <li><span><i class="icon-repeat"></i>Імпортувати записи</span><span><i>Alt</i>+<i>Shift</i>+<i>R</i></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cell-66">
+                            
+                            <div class="cell-inner" id="json-parser">
+                                <h3>Зчитувач JSON данних</h3>
+                                <input data-fn="file" type="file" accept="application/json" tabindex="-1"/>
+                                <textarea data-fn="textarea" tabindex="-1" placeholder=""></textarea>
+                                <button data-fn="select" tabindex="-1" class="button" title="Оберіть файл з вашого пристрою.">Обрати</button>
+                                <button data-fn="import" tabindex="-1" class="button" title="Імпортувати обраний JSON">Імпортувати</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="static">
