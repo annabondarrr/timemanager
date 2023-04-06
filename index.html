@@ -144,6 +144,42 @@
                             </div>
                         </div>
                     </div>
+                    <label for="amplifier"><span>User</span></label>
+                    <input id="amplifier" type="checkbox" checked tabindex="-1"/>
+                    <div class="tier amplifiable">
+                        <div class="cell-50">
+                            <div class="cell-inner" id="user-info">
+                                <h3 class="flexed">User Info
+                                    <div data-fn="controls" class="controls">
+                                        <b class="action" data-fn="import" title="Import user configuration." role="button">Import</b>
+                                        <b class="action" data-fn="export" title="Export user configuration." role="button">Export</b>
+                                        <b class="action" data-fn="reset" title="Reset user configuration." role="button">Reset</b>
+                                    </div>
+                                </h3>
+                                <table data-fn="table" class="user-info">
+                                    <tbody>
+                                        <tr data-id="userName"><th><i class="icon-user-o"></i>User Name</th><td></td><td title="Click for more information."><i class="icon-question-circle"></i></td></tr>
+                                        <tr data-id="userSettings"><th><i class="icon-cog"></i>Settings</th><td></td><td title="Click for more information."><i class="icon-check-circle"></i></td></tr>
+                                        <tr data-id="userLanguage"><th><i class="icon-flag"></i>Language</th><td></td><td title="Click for more information."><i class="icon-info-circle"></i></td></tr>
+                                        <tr data-id="userId"><th><i class="icon-tag"></i>User ID</th><td class="mono"></td><td title="Click for more information."><i class="icon-info-circle"></i></td></tr>
+                                        <tr data-id="sessionId"><th><i class="icon-hourglass-half"></i>Session ID</th><td class="mono"></td><td title="Click for more information."><i class="icon-info-circle"></i></td></tr>
+                                    </tbody>
+                                </table>
+                                <button data-fn="reload" tabindex="-1" class="button" title="Reload the application to apply settings changes.">Reload App</button>
+                            </div>
+                        </div>
+                        <div class="cell-50">
+                            <div class="cell-inner" id="notifications-log">
+                                <h3 class="flexed">Notifications Log
+                                    <div data-fn="controls" class="controls">
+                                        <b class="action" data-fn="clear" title="Clear all logged notifications." role="button">Clear</b>
+                                        <b class="action" data-fn="counter" title="Logged notifications count.">0</b>
+                                    </div>
+                                </h3>
+                                <ol data-fn="log" class="notifications-log"></ol>
+                            </div>
+                        </div>
+                    </div>
 
                     <label for="amplifier"><span>Просунуті налаштування</span></label>
                     <input id="amplifier" type="checkbox" checked tabindex="-1"/>
