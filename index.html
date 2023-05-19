@@ -7,6 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
     <title>Тайм-менеджмент</title>
     <link rel="stylesheet" type="text/css" href="assets/css/dist/app.bundle.css">
+    <style>
+        .info-container {
+            text-align: justify;
+        }
+        
+        #close-button {
+            margin-top: 10px;
+        }
+
+        .popup-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            position: absolute;
+        }
+
+        #info-button {
+            height: 30px;
+            width: 30px;
+            background: linear-gradient(to bottom, #000000, #FF0000);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -30,18 +71,71 @@
             </div>
             <div id="notifications-bar"></div>
             
-                <div class="flyout" >
+                <div class="flyout"  >
                     <h4 class="lift" title="Натисніть, щоб отримати більше інформації.">інформація про авторку</h4>
                     <div class="body-text">
-                        <h1>тайм-менеджмент</h1>
-                        <img src="assets/images/author.jpg" width="175px" style="border-radius: 50%;"><br>
-                        <p>
-                            Проект виконала учениця 11 класу, Бондар Анна
-                        </p>
+                        <h1>Проект виконала учениця 11 класу, Бондар Анна</h1>
+                        <img src="assets/images/author.jpg" width="170px" style="border-radius: 50%;"><br>
                         <p>
                             Для питань щодо проекту можете звертатись на електронну пошту:<br>
                             <a href="mailto:bondar.anna@elitar.rv.ua?subject=%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%22%D0%A2%D0%B0%D0%B9%D0%BC-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%22">bondar.anna@elitar.rv.ua</a>
                         </p>
+                        <p style="color: #333333;">Натисніть для перегляду інструкцій:</p>
+                        <div id="info-button" title="Інструкції">i</div>
+                        <div id="instructions" class="popup-window">
+                            <!-- Instructions content goes here -->
+                            <div class="info-container">
+                                <h1>Інструкція до користування засобами для тайм-менеджменту</h1>
+                                <p>Проект включає в себе засоби для вимірювання часових проміжків з можливістю додавання заголовків до записів в таблиці цих проміжків та додаткових нотаток, які можуть бути додані для кращої організації часового планування.</p>
+
+                                <p>На початку роботи, коли до таблиці не було додано записів, відображається інструкція для взаємодії через панель керування:</p>
+                                <img src="assets/images/timatable_info.png" alt="Панель керування" />
+
+                                <p>Також є можливість встановлення часу нагадування, який відтворює звук сповіщення через певний вказаний проміжок часу:</p>
+                                <img src="assets/images/notification.png" alt="Нагадування" />
+
+                                <p>Крім того, проект містить зручний та мінімалістичний інструментар для ведення списку справ. На початку роботи, коли до таблиці не було додано записів, відображається рекомендація для взаємодії:</p>
+                                <img src="assets/images/notestable_info.png" alt="Список справ" />
+
+                                <p>Проект також включає в себе функцію збереження записів у декількох можливих форматах файлів для подальшого їх відновлення у таблиці:</p>
+                                <img src="assets/images/saveas.png" alt="Збереження" />
+
+                                <p>Інформація про авторку</p>
+                                <p>Для того, щоб відкрити цей елемент потрібно натиснути на секцію у правому нижньому куті. У цій секції згідно з планом відображена коротка інформація про мене та активне посилання на поштову адресу, що дає змогу написати лист, користуючись вбудованими засобами користувачів. Щоб вийти з цієї секції потрібно два рази швидко по ній натиснути, що вказано нижче під посиланням на пошту.</p>
+
+                                <p>Рядок сповіщень</p>
+                                <p>Також згідно з планом був доданий рядок сповіщень та проведені відповідні зміни в коді для того, щоб користувач при взаємодії з системою міг постійно бачити статус задач та повідомлення про помилки вводу. Всі можливі помилки користувачів були передбачені та коректно опрацьовуються та інформація про них відображається у рядку сповіщень.</p>
+                                <img src="assets/images/noti.png" alt="Рядок сповіщень" />
+
+                                <p>Це повідомлення з'являється на екрані відразу після додавання нового запису до списку справ. Плавність появи забезпечується засобами обраної мови програмування. Також за допомогою мови програмування процес сповіщень організований так, що цей рядок з'являється тільки коли є нове повідомлення.</p>
+
+                                <p>Щоб відкрити панель налаштувань потрібно натиснути на відповідну кнопку у правому верхньому куті:</p>
+
+                                <p>Розроблені можливості для таймера:</p>
+
+                                    <p>Спрощене керування</p>
+                                    <p>Ця опція залишає для користувача тільки кнопки початку запису та безперервне додавання записів у таблицю, детальніше робота кнопок була описана у попередньому листі.</p>
+                                    <p>Спрощена таблиця</p>
+                                    <p>Ця опція зменшує деталізацію записів в таблиці, а саме залишає тільки номер запису, його тривалість та заголовок. Це може бути корисним для більшого фокусу при аналізі використаного часу. При цьому приховані дані не видаляються та будуть повернені, якщо користувач обере відповідну (цю ж) опцію в налаштуваннях.</p>
+                                    <p>Просунуті можливості</p>
+
+
+                                <p>Розроблені можливості для режимів:</p>
+                                    <p>Темний</p>
+                                    <p>Ця опція змінює забарвлення на темні кольори, що корисно у темні пори доби або для легшого фокусу над утвореними записами.</p>
+                                    <p>Зосередженість на часі</p>
+                                    <p>Ця опція приховує секцію "Список справ" для більшого зосередження саме на ведені таблиці часових проміжків роботи користувача.</p>
+                                    <p>Спрощений</p>
+                                    <p>Цей режим дозволяє користувачу керувати системою тільки комбінаціями клавіш, які наведені на зображенні панелі налаштувань. Користь цього режиму у можливості швидкого користування та створення записів, якщо запам'ятати комбінації.</p>
+
+                                <p>Приклад користування проектом в цілому:</p>
+                                <img src="assets/images/example.png" alt="Приклад роботи" />
+
+                                <p>Переваги цього проекту очевидні. Він допоможе користувачам ефективніше планувати свій час, стежити за своїми досягненнями та завданнями та мати доступ до них з будь-якого місця та пристрою. Проект також має мінімалістичний та простий інтерфейс, що робить його легким у використанні для користувачів будь-якого рівня зручності.</p>
+                            </div>
+                            <button id="close-button">Закрити</button>
+                        </div>
+                        
                     </div>
                 </div>
             
@@ -54,10 +148,131 @@
                     <span title="Активні дії завершились."></span>
                 </div>
                 <div id="launch-time"></div>
+
                 <div id="hamburger" title="Налаштування">
                     <span></span>
                     <span></span>
                     <span></span>
+                </div>
+                
+                
+            </div>
+            <div class="settings">
+                <div class="pack">
+                    <label for="amplifier"><span>Налаштування додатку</span></label>
+                    <input id="amplifier" type="checkbox" checked tabindex="-1"/>
+                    <div class="tier amplifiable">
+                        <div class="cell-33" style="display:none">
+                            <div class="cell-inner">
+                                <h3>Основні</h3>
+                                <div class="option" style="display:none">
+                                    <span class="caption">Lock Toggles</span>
+                                    <label class="toggle locker">
+                                        <input type="checkbox" data-fn="glt" tabindex="-1"/> 
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Capacious UI</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="gcu" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Notifications Log</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="gnl" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-33">
+                            <div class="cell-inner">
+                                <h3>Таймер</h3>
+                                <div class="option">
+                                    <span class="caption">Спрощене керування</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tsd" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Спрощена таблиця</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tst" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Просунуті можливості</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="tao" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-33">
+                            <div class="cell-inner">
+                                <h3>Режими</h3>
+                                <div class="option">
+                                    <span class="caption">Темний</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mdm" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption">Зосередженість на часі</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mem" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <span class="caption pc-only">Спрощений</span>
+                                    <label class="toggle">
+                                        <input type="checkbox" data-fn="mum" tabindex="-1"/>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="amplifier"><span>Просунуті налаштування</span></label>
+                    <input id="amplifier" type="checkbox" checked tabindex="-1"/>
+                    <div class="tier amplifiable">
+                        <div class="cell-33">
+                            <div class="cell-inner shortcuts">
+                                <h3>Комбінації клавіш</h3>
+                                <ul>
+                                    <li><span><i class="icon-play-circle"></i>Початок запису</span><span><i>Alt</i>+<i>Shift</i>+<i>1</i></span></li>
+                                    <li><span><i class="icon-stop-circle"></i>Зупинка запису</span><span><i>Alt</i>+<i>Shift</i>+<i>2</i></span></li>
+                                    <li><span><i class="icon-plus-circle"></i>Додати запис</span><span><i>Alt</i>+<i>Shift</i>+<i>3</i></span></li>
+                                    <li><span><i class="icon-minus-circle"></i>Скинути запис</span><span><i>Alt</i>+<i>Shift</i>+<i>4</i></span></li>
+                                    <li><span><i class="icon-refresh"></i>Тривалий запис</span><span><i>Alt</i>+<i>Shift</i>+<i>5</i></span></li>
+                                    <li><span><i class="icon-undo"></i>Відновити запис</span><span><i>Alt</i>+<i>Shift</i>+<i>Z</i></span></li>
+                                    <li><span><i class="icon-file-excel-o"></i>Експортувати з Excel</span><span><i>Alt</i>+<i>Shift</i>+<i>E</i></span></li>
+                                    <li><span><i class="icon-file-text-o"></i>Експортувати з JSON</span><span><i>Alt</i>+<i>Shift</i>+<i>J</i></span></li>
+                                    <li><span><i class="icon-upload"></i>Відкрити файл</span><span><i>Alt</i>+<i>Shift</i>+<i>O</i></span></li>
+                                    <li><span><i class="icon-repeat"></i>Імпортувати записи</span><span><i>Alt</i>+<i>Shift</i>+<i>R</i></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cell-66">
+                            
+                            <div class="cell-inner" id="json-parser">
+                                <h3>Зчитувач JSON данних</h3>
+                                <input data-fn="file" type="file" accept="application/json" tabindex="-1"/>
+                                <textarea data-fn="textarea" tabindex="-1" placeholder=""></textarea>
+                                <button data-fn="select" tabindex="-1" class="button" title="Оберіть файл з вашого пристрою.">Обрати</button>
+                                <button data-fn="import" tabindex="-1" class="button" title="Імпортувати обраний JSON">Імпортувати</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="settings">
@@ -266,5 +481,70 @@
         </div>
     </div>
     <script src="assets/js/dist/app.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#info-button").click(function() {
+                $("#instructions").toggle();
+            });
+        });
+        $(document).ready(function() {
+            $("#close-button").click(function() {
+                $("#instructions").fadeOut();
+            });
+        });
+        function resizePopup() {
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        var popupHeight = $("#instructions").outerHeight();
+        var popupWidth = $("#instructions").outerWidth();
+
+        if (popupHeight >= windowHeight * 0.9) {
+            $("#instructions").css("height", windowHeight * 0.9);
+        }
+        if (popupWidth >= windowWidth * 0.9) {
+            $("#instructions").css("width", windowWidth * 0.9);
+        }
+    }
+
+    $("#close-button").click(function() {
+        $("#instructions").fadeOut();
+    });
+
+    $(window).resize(function() {
+        resizePopup();
+    });
+
+    function startDrag(e) {
+        isDragging = true;
+        offset.x = e.clientX - $("#instructions").offset().left;
+        offset.y = e.clientY - $("#instructions").offset().top;
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            var posX = e.clientX - offset.x;
+            var posY = e.clientY - offset.y;
+            $("#instructions").css("left", posX);
+            $("#instructions").css("top", posY);
+        }
+    }
+
+    $("#instructions").on("mousedown", function(e) {
+        startDrag(e);
+    });
+
+    $(document).on("mouseup", function() {
+        endDrag();
+    });
+
+    $(document).on("mousemove", function(e) {
+        drag(e);
+    });
+        </script>
 </body>
 </html>
